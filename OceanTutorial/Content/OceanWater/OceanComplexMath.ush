@@ -1,0 +1,27 @@
+
+
+float2 jMul(float2 c0,float2 c1)
+{
+	float2 c;
+	c.x=c0.x*c1.x-c0.y*c1.y;
+	c.y=c0.x*c1.y+c0.y*c1.x;
+	return c;
+}
+
+float2 jAdd(float2 c0,float2 c1)
+{
+	float2 c;
+	c.x=c0.x+c1.x;
+	c.y=c0.y+c1.y;
+	return c;
+}
+
+float jMod(float x,float y)
+{
+	return x-y*floor(x/y);
+}
+
+float2 jConj(float2 c)
+{
+	return float2(c.x,-c.y);
+}
