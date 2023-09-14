@@ -1,0 +1,2 @@
+float3 col = mul(A, B);
+return col;

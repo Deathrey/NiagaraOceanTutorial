@@ -18,6 +18,7 @@
 
 #define LENGTH 256
 #define BUTTERFLY_COUNT 8
+//#define THREADGROUP_SIZE 256
 
 void GetButterflyValues(uint passIndex,uint x, out uint2 indices, out float2 weights)
 {
@@ -27,6 +28,7 @@ void GetButterflyValues(uint passIndex,uint x, out uint2 indices, out float2 wei
 	int sectionStartOffset=x&~(sectionWidth-1);
 	int halfSectionOffset=x&(halfSectionWidth-1);
 	int sectionOffset=x&(sectionWidth-1);
+    float PI = 3.14;
 	
 	sincos(2.0* PI*sectionOffset/(float)sectionWidth,weights.y,weights.x);
 	weights.y=-weights.y;
@@ -40,7 +42,7 @@ void GetButterflyValues(uint passIndex,uint x, out uint2 indices, out float2 wei
 	}
 }
 /////////////////
-groupshared float3 pingPongArray[4][256];
+groupshared float3 pingPongArray[4][THREADGROUP_SIZE];
 
 void ButterflyPass(int passIndex, uint x,uint t0, uint t1, out float3 resultR, out float3 resultI)
 {
