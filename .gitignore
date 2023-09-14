@@ -57,6 +57,9 @@ Build/*
 !Build/*/
 Build/*/**
 !Build/*/PakBlacklist*.txt
+!Binaries/Win64/*.dll
+!Intermediate/Build/BuildRules/*
+!Plugins/ShaderDirectory/*
 
 # Don't ignore icon files in Build
 !Build/**/*.ico
