@@ -18,6 +18,7 @@
 
 #define LENGTH 256
 #define BUTTERFLY_COUNT 8
+#define PI 3.1415926
 //#define THREADGROUP_SIZE 256
 
 void GetButterflyValues(uint passIndex,uint x, out uint2 indices, out float2 weights)
@@ -28,9 +29,8 @@ void GetButterflyValues(uint passIndex,uint x, out uint2 indices, out float2 wei
 	int sectionStartOffset=x&~(sectionWidth-1);
 	int halfSectionOffset=x&(halfSectionWidth-1);
 	int sectionOffset=x&(sectionWidth-1);
-    float PI = 3.14;
 	
-	sincos(2.0* PI*sectionOffset/(float)sectionWidth,weights.y,weights.x);
+	sincos(2.0*PI*sectionOffset/(float)sectionWidth,weights.y,weights.x);
 	weights.y=-weights.y;
 	
 	indices.x=sectionStartOffset+halfSectionOffset;
