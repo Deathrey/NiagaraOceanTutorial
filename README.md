@@ -10,10 +10,6 @@ https://vimeo.com/814697784
 
 * DirectX 12 + SM 6.0 only.
 
-* If you're getting glitched ocean, find `AwesomeShaders/OceanWater.ush` file
-uncomment `#define THREADGROUP_SIZE 256` and
-change `256` to something like `128` or `64` (it's GPU dependent, I guess).
-
 ## URLs:
 
 Tutorial: https://dev.epicgames.com/community/learning/tutorials/qM1o/unreal-engine-ocean-simulation
