@@ -1,0 +1,16 @@
+#define LENGTH 256
+
+int2 GetWrappedPosition(int3 pos,int2 offset)
+{
+	int2 posi=pos.xy+offset;
+	FLATTEN
+	if (posi.x>=LENGTH) posi.x-=LENGTH;
+	FLATTEN
+	if (posi.x<0) posi.x+=LENGTH;
+	FLATTEN
+	if (posi.y>=LENGTH) posi.y-=LENGTH;
+	FLATTEN
+	if (posi.y<0) posi.y+=LENGTH;
+	return int2(posi.x,posi.y+pos.z*LENGTH);
+	
+}
